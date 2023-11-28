@@ -53,6 +53,7 @@ const getSingleUser = async (req: Request, res: Response) => {
     }
 
 }
+
 //delete-single 
 const deleteSingleUser = async (req: Request, res: Response) => {
     try {
@@ -68,10 +69,26 @@ const deleteSingleUser = async (req: Request, res: Response) => {
     }
 }
 
+//update 
+const updateSingleUser = async (req: Request, res: Response) => {
+    try {
+        const { studentId } = req.params
+        const result = await UserServices.updateSingleUsersFromDB(studentId)
+        res.status(200).json({
+            success: true,
+            message: "single User is Updated successfully Allhamdulillah",
+            data: result,
+        })
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 
 export const UserControllers = {
     createUser,
     getAllUser,
     getSingleUser,
     deleteSingleUser,
+    updateSingleUser
 }

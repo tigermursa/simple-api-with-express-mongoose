@@ -10,5 +10,7 @@ router.get('/allUsers', UserControllers.getAllUser)
 router.get('/:studentId', UserControllers.getSingleUser)
 //get-single 
 router.delete('/:studentId', UserControllers.deleteSingleUser)
+//update 
+router.patch('/:studentId', UserControllers.updateSingleUser)
 
 export const userRoutes = router;
