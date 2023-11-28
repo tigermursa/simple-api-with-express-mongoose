@@ -16,13 +16,27 @@ const createUser = async (req: Request, res: Response) => {
     }
 }
 
-//get-all
+//get-all 
 const getAllUser = async (req: Request, res: Response) => {
     try {
         const result = await UserServices.getAllUsersFromDB()
         res.status(200).json({
             success: true,
-            message: "User is retrieved successfully Allhamdulillah",
+            message: "All User is retrieved successfully Allhamdulillah",
+            data: result,
+        })
+    } catch (error) {
+        console.log(error)
+    }
+}
+//get-single 
+const getSingleUser = async (req: Request, res: Response) => {
+    try {
+        const {studentId} = req.params
+        const result = await UserServices.getSingleUsersFromDB(studentId)
+        res.status(200).json({
+            success: true,
+            message: "single User is retrieved successfully Allhamdulillah",
             data: result,
         })
     } catch (error) {
@@ -34,4 +48,5 @@ const getAllUser = async (req: Request, res: Response) => {
 export const UserControllers = {
     createUser,
     getAllUser,
+    getSingleUser,
 }
