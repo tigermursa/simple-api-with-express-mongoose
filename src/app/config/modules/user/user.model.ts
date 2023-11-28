@@ -10,7 +10,7 @@ const guardianSchema = new Schema<Guardian>({
 const userSchema = new Schema<UserT>({
     id: { type: String, required: true, unique: true },
     name: {
-        firstName: { type: String, required: true },
+        firstName: { type: String, required: true, maxlength: [20,"not allowed more then 20"] , trim: true},
         middleName: { type: String, required: true },
     },
     email: { type: String, required: true, unique: true },
