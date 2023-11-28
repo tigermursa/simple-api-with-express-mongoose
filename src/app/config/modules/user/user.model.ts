@@ -18,6 +18,4 @@ const userSchema = new Schema<UserT>({
     guardian: { type: guardianSchema, required: true },
 });
 
-const UserModel = model<UserT>('User', userSchema);
-
-//export { connect, UserModel as User }
+export const UserModel = model<UserT>('User', userSchema); //user DB te save 
