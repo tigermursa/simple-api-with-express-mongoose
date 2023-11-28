@@ -69,7 +69,7 @@ const deleteSingleUser = async (req: Request, res: Response) => {
     }
 }
 
-//update 
+//update  (not-working but working on it)
 const updateSingleUser = async (req: Request, res: Response) => {
     try {
         const { studentId } = req.params
