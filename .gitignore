@@ -4,3 +4,5 @@ package.json
 tsconfig.json
 dist
 .env
+.vercel
+vercel.json
