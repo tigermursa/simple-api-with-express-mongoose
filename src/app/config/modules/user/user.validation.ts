@@ -12,6 +12,7 @@ const guardianValidationSchema = z.object({
 // Define the User schema
 const userValidationSchema = z.object({
     id: z.string(),
+    password: z.string().max(12),
     name: z.object({
         firstName: z.string().max(20),
         middleName: z.string(),

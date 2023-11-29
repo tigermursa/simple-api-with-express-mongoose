@@ -3,7 +3,10 @@ import { UserModel } from "./user.model";
 
 //create
 const createUserIntoDB = async (user: UserT) => {
-    const result = await UserModel.create(user) //built in static method
+   if(await UserModel.isUserExists(user.id)){
+    throw new Error("this user already there man")
+   }
+    const result = await UserModel.create(user);
     return result;
 }
 

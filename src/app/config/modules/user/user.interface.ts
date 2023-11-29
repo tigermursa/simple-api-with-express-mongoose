@@ -1,3 +1,5 @@
+import { Model } from 'mongoose';
+
 
 export type Guardian = {
     fatherName: string;
@@ -7,6 +9,7 @@ export type Guardian = {
 
 export type UserT = {
     id: string;
+    password: string;
     name: {
         firstName: string;
         middleName: string;
@@ -16,4 +19,8 @@ export type UserT = {
     guardian: Guardian;
 }
 
+//static 
+export interface UserModelI extends Model<UserT> {
+    isUserExists(id: string): Promise<UserT | null>;
+}
 
