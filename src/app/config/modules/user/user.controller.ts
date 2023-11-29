@@ -69,18 +69,23 @@ const deleteSingleUser = async (req: Request, res: Response) => {
     }
 }
 
-//update  (not-working but working on it)
+//update 
 const updateSingleUser = async (req: Request, res: Response) => {
     try {
         const { studentId } = req.params
-        const result = await UserServices.updateSingleUsersFromDB(studentId)
+        const updatedData = req.body;
+        const result = await UserServices.updateSingleUsersFromDB(studentId, updatedData);
         res.status(200).json({
             success: true,
             message: "single User is Updated successfully Allhamdulillah",
             data: result,
         })
     } catch (error) {
-        console.log(error)
+        console.error(error);
+        res.status(500).json({
+            success: false,
+            message: "Internal Server Error"
+        });
     }
 }
 

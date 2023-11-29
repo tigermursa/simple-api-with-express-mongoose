@@ -20,6 +20,7 @@ const userValidationSchema = z.object({
     email: z.string().email(),
     gender: z.enum(['male', 'female']),
     guardian: guardianValidationSchema,
+    isDeleted:z.boolean(),
 });
 
 

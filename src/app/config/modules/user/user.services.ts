@@ -3,9 +3,9 @@ import { UserModel } from "./user.model";
 
 //create
 const createUserIntoDB = async (user: UserT) => {
-   if(await UserModel.isUserExists(user.id)){
-    throw new Error("this user already there man")
-   }
+    if (await UserModel.isUserExists(user.id)) {
+        throw new Error("this user already there man")
+    }
     const result = await UserModel.create(user);
     return result;
 }
@@ -29,14 +29,22 @@ const getSingleUsersFromDB = async (id: string) => {
     const result = await UserModel.findOne({ id })
     return result;
 }
-//delete-single 
+
+//delete-single permanently from fb
+// const deleteSingleUsersFromDB = async (id: string) => {
+//     const result = await UserModel.deleteOne({ id })
+//     return result;
+// }
+
+//delete but stays in DB
 const deleteSingleUsersFromDB = async (id: string) => {
-    const result = await UserModel.deleteOne({ id })
+    const result = await UserModel.updateOne({ id }, { isDeleted: true })
     return result;
 }
+
 //update 
-const updateSingleUsersFromDB = async (id: string) => {
-    const result = await UserModel.updateOne({ id })
+const updateSingleUsersFromDB = async (id: string, updatedData: Partial<UserT>) => {
+    const result = await UserModel.updateOne({ id }, { $set: updatedData })
     return result;
 }
 

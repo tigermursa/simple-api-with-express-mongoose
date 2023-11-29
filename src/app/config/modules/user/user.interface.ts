@@ -17,6 +17,7 @@ export type UserT = {
     email: string;
     gender: "male" | "female";
     guardian: Guardian;
+    isDeleted:boolean;
 }
 
 //static 
