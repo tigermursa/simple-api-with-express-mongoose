@@ -1,23 +1,28 @@
 import { Model } from 'mongoose';
 
 
-export type Guardian = {
-    fatherName: string;
-    motherName: string;
-    others: string
-}
+// export type Guardian = {
+//     fatherName: string;
+//     motherName: string;
+//     others: string
+// }
 
 export type UserT = {
     id: string;
+    name: string;
     password: string;
-    name: {
-        firstName: string;
-        middleName: string;
-    }
+    isDeleted: boolean;
     email: string;
-    gender: "male" | "female";
-    guardian: Guardian;
-    isDeleted:boolean;
+
+    //stop
+    
+    // gender: "male" | "female";
+    // guardian: Guardian;
+    // name: {
+    //     firstName: string;
+    //     lastName: string;
+    // }
+
 }
 
 //static 
